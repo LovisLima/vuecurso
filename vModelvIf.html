@@ -8,18 +8,21 @@
 </head>
 <body>
     <div id="app">
-        <input type="text" v-model="textDigitado">
-        <br>
-        <br>
-        <div v-if="textDigitado == 1">
-            <img :src="srcImg2" :title="titleImg" width="110px">     
+        <!--
+        <div v-for ="imagem in imagens">
+            <img :src="imagem"  width="110px">     
         </div>
-        <div v-else-if="textDigitado == 2"> 
-            <img :src="srcImg1" :title="titleImg" width="100px">     
-        </div>
-        <div v-else>
-            <img :src="srcImg" :title="titleImg" width="100px">     
-        </div>
+        -->
+       <!-- <p v-for = "(fruta, index) in Frutas">
+            {{index}} - {{fruta.nome}}/{{fruta.cor}}
+        </p>
+       -->
+        <ul>
+            <li v-for= "(value, key, index) in Usuário " >
+                 <b>{{key}}</b>: {{value}}
+            </li>
+        </ul>
+
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -27,12 +30,24 @@
         new Vue({
             el: '#app',
             data:{ 
-                textDigitado: "",
-                srcImg:'title.png',
-                srcImg1:'felix.jpg',
-                srcImg2:'felix2.jpg',
+                
+                imagens: ['title.png',
+                'felix.jpg',
+                'felix2.jpg'],
+                
+                Frutas: [
+                    { nome: 'Pera', cor: 'verde' }, 
+                    { nome: 'Uva'  , cor: 'verde' },
+                    { nome: 'maçã' , cor: 'vermelho' } ],
+
+                Usuário: {
+                    nome: "Wagner",
+                    telefone: "3456437765",
+                    email: "wagner@wagner.com",
+                    sobrenome: "lima"
+                }
             } 
-        })
+        });
     </script>
 </body>
 </html>
