@@ -8,15 +8,19 @@
 </head>
 <body>
     <div id="app">
-        <!--
+       
+        
         <div v-for ="imagem in imagens">
             <img :src="imagem"  width="110px">     
         </div>
-        -->
-       <!-- <p v-for = "(fruta, index) in Frutas">
+        
+        <p v-for = "(fruta, index) in Frutas">
             {{index}} - {{fruta.nome}}/{{fruta.cor}}
         </p>
-       -->
+       
+       <div v-if="text" v-model="">
+        
+       </div>
         <ul>
             <li v-for= "(value, key, index) in Usuário " >
                  <b>{{key}}</b>: {{value}}
