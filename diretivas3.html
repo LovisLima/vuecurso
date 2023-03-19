@@ -23,24 +23,41 @@
         <input @click="corP('red')" type ="radio" name = "cor" id="red" checked>
         "green"
         <input @click="corP('green')" type ="radio" name = "cor" id="green">
-        "yellow
-        <input @click="corP('yellow')" type ="radio" name = "cor" id="yellow">
-        "pink"        
+        "borda"        
         <input @click="corP('pink')" type ="radio" name = "cor" id="pink">
         <br><br>
         <button @click ="vermelho()">vermelho</button>
         <button @click ="verde()">verde</button>
+        <button @click ="borda()">borda</button>
 
-        <p v-bind:class="{red: colors.vermelho, green: colors.verde, yellow: colors.amarelo, pink: colors.rosa}">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vero nulla ipsam necessitatibus aperiam molestias enim ab. Ullam, aspernatur, soluta vitae, ratione earum excepturi quos ab totam asperiores quibusdam quod?
+        <p v-bind:class="{
+            red: colors.vermelho, 
+            green: colors.verde, 
+            borda: colors.borda
+        }">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vero nulla ipsam necessitatibus aperiam 
+        molestias enim ab. Ullam, aspernatur, soluta vitae, ratione earum excepturi quos ab totam 
+        asperiores quibusdam quod?
         </p>
         
+        <p class >
+
+        </p>
     </div>
         <style>
-        .red {background-color:red}
-        .green {background-color:green}
-        .yellow {background-color:yellow}
-        .pink {background-color:pink}
+        .red {background-color:red;
+              border: 1px solid blue
+        }
+        .borda {
+            border: 2px solid black;
+        }
+        .green {background-color:green;
+                border:1px solid black;
+        }
+        .yellow {background-color:yellow;
+        }
+        .pink {background-color:pink;
+        }
         </style>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script>
@@ -48,8 +65,9 @@
             el: '#app',
             data:{ 
                  colors:{
-                    vermelho: true,
+                    vermelho: false,
                     verde: false,
+                    borda:false
                  },
                  classeParagrafo:'red',
                  msg: '',
@@ -73,13 +91,19 @@
                 },
 
                 vermelho(){
-                    this.colors.vermelho =true;
+                    this.colors.vermelho = !this.colors.vermelho;
                     this.colors.verde =false;
                 },
 
                 verde(){
-                    this.colors.vermelho =false;
-                    this.colors.verde =true;
+                    this.colors.vermelho = false;
+                    this.colors.verde = !this.colors.verde;
+                },
+
+
+
+                borda(){
+                    this.colors.borda = !this.colors.borda ;
                 }
             }
 
